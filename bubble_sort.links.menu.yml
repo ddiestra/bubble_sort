@@ -1,0 +1,5 @@
+bubble_sort.form:
+  title: 'Bubble sort settings'
+  description: 'Configure settings for the Bubble Sort module.'
+  route_name: bubble_sort.form
+  parent: 'system.admin_config_development'

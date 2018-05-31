@@ -1,0 +1,7 @@
+administer bubble sort:
+  title: 'Administer bubble sort'
+  restrict access: true
+  
+view bubble sort:
+  title: 'View bubble sort'
+  description: 'To view the bubble sort animation page'

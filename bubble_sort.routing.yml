@@ -1,0 +1,28 @@
+bubble_sort.view:
+  path: '/bubblesort'
+  defaults:
+    _controller: '\Drupal\bubble_sort\Controller\ViewController::view'
+  requirements:
+    _permission: 'view bubble sort'
+
+bubble_sort.shuffle:
+  path: '/bubblesort/shuffle'
+  defaults:
+    _controller: '\Drupal\bubble_sort\Controller\ViewController::shuffle'
+  requirements:
+    _permission: 'view bubble sort'
+
+bubble_sort.step:
+  path: '/bubblesort/step'
+  defaults:
+    _controller: '\Drupal\bubble_sort\Controller\ViewController::step'
+  requirements:
+    _permission: 'view bubble sort'
+
+bubble_sort.form:
+  path: '/admin/config/development/bubble-sort'
+  defaults:
+    _form: 'Drupal\bubble_sort\Form\BubbleSortForm'
+    _title: 'Bubble sort settings'
+  requirements:
+    _permission: 'administer bubble sort'

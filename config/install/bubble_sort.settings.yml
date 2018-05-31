@@ -1,0 +1,5 @@
+bubble_sort:
+  array_length: 10
+  max_integer: 100
+  default_color: '#007736'
+  highlighted_color: '#c4302b'

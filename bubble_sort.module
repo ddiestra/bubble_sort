@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bubble_sort_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.bubblesort':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This is just a simple bubble sort simulation built with Vue.js inside a Drupal module, develop by <a href=":github">ddiestra</a>.', [':github' => 'https://github.com/ddiestra']) . '</p>';
+      return $output;
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function bubble_sort_theme($existing, $type, $theme, $path) {
+  $variables = [
+    'bubble_sort' => [
+      'variables' => [
+        'color' => NULL,
+        'hcolor' => NULL,
+        'len' => NULL,
+      ],
+      'template' => 'animation',
+    ],
+  ];
+  return $variables;
+}

@@ -1,0 +1,9 @@
+bubble-sort-animation:
+  version: 1.x
+  css:
+    theme:
+      https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css: {type: external}
+      assets/css/theme.css: {}
+  js:
+    https://cdn.jsdelivr.net/npm/vue: { type: external }
+    assets/js/main.js: {}

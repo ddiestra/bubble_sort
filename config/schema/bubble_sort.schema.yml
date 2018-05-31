@@ -1,0 +1,19 @@
+bubble_sort.settings:
+  type: config_object
+  label: 'Bubble sort settings'
+  mapping:
+    loremipsum:
+      type: mapping
+      mapping:
+        array_length:
+          type: text
+          label: 'Define the length of the array:'
+        max_integer:
+          type: text
+          label: 'Max integer value:'
+        default_color:
+          type: text
+          label: 'Default color of rows:'
+        highlighted_color:
+          type: text
+          label: 'The highlighted color of rows:'

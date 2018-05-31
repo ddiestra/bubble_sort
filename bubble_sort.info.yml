@@ -1,0 +1,6 @@
+name: 'Bubble Sort'
+type: module
+description: 'Bubble Sort Simulation develop by ddiestra'
+package: Ddiestra
+core: 8.x
+configure: bubble_sort.form
