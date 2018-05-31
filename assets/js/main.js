@@ -62,7 +62,7 @@ Vue.component('bubblesort', {
       }
 
       var vm = this;
-      jQuery.get('/test/bubblesort/shuffle', function(response){
+      jQuery.get('/bubblesort/shuffle', function(response){
         vm.values = response.data;
         vm.ready = true;
       });
@@ -76,7 +76,7 @@ Vue.component('bubblesort', {
           var vm = this;
           var values = [vm.values[vm.current.index],vm.values[vm.current.index+1]];
           
-          jQuery.post('/test/bubblesort/step',{current: vm.current,values: values },function(response){
+          jQuery.post('/bubblesort/step',{current: vm.current,values: values },function(response){
             var action = response.data;
 
             if(action.swap){
