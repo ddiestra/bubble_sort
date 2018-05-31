@@ -1,15 +1,14 @@
 <?php
-/**
- * @file
- * Contains \Drupal\bubble_sort\Form\BubbleSortForm.
- */
 
 namespace Drupal\bubble_sort\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use \Drupal\Core\Cache\Cache;
+use Drupal\Core\Cache\Cache;
 
+/**
+ * BubbleSortForm.
+ */
 class BubbleSortForm extends ConfigFormBase {
 
   /**
@@ -29,36 +28,36 @@ class BubbleSortForm extends ConfigFormBase {
     $config = $this->config('bubble_sort.settings');
 
     // Page title field.
-    $form['array_length'] = array(
+    $form['array_length'] = [
       '#type' => 'number',
       '#title' => $this->t('Length of the array:'),
       '#default_value' => $config->get('bubble_sort.array_length'),
       '#description' => $this->t('Define the size of numbers to be sort. Max value 30'),
-    );
+    ];
 
     // Source text field.
-    $form['max_integer'] = array(
+    $form['max_integer'] = [
       '#type' => 'number',
       '#title' => $this->t('Max integer value:'),
       '#default_value' => $config->get('bubble_sort.max_integer'),
       '#description' => $this->t('The max value of the integers, it should always be higher than the array length and have a max value of 500.'),
-    );
+    ];
 
     // Source text field.
-    $form['default_color'] = array(
+    $form['default_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Default color of rows:'),
       '#default_value' => $config->get('bubble_sort.default_color'),
       '#description' => $this->t('It should be the color expressed in hexadecimal.'),
-    );
+    ];
 
     // Source text field.
-    $form['highlighted_color'] = array(
+    $form['highlighted_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('The highlighted color of rows:'),
       '#default_value' => $config->get('bubble_sort.highlighted_color'),
       '#description' => $this->t('It should be the color expressed in hexadecimal.'),
-    );
+    ];
 
     return $form;
   }
@@ -74,22 +73,21 @@ class BubbleSortForm extends ConfigFormBase {
       $form_state->setErrorByName('max_integer', $this->t('This value should always be higher than the array length.'));
     }
 
-    if($values['array_length'] > 30){
+    if ($values['array_length'] > 30) {
       $form_state->setErrorByName('array_length', $this->t('To avoid complications the max value is 30.'));
     }
 
-    if($values['max_integer'] > 500){
+    if ($values['max_integer'] > 500) {
       $form_state->setErrorByName('max_integer', $this->t('To avoid complications the max value is 500.'));
     }
 
-    if (substr($values['default_color'], 0, 1) !== "#" || !in_array(strlen($values['default_color']),[4,7])){
+    if (substr($values['default_color'], 0, 1) !== "#" || !in_array(strlen($values['default_color']), [4, 7])) {
       $form_state->setErrorByName('default_color', $this->t('This value is not a valid hexadecimal.'));
     }
 
-    if (substr($values['highlighted_color'], 0, 1) !== "#" || !in_array(strlen($values['highlighted_color']),[4,7])){
+    if (substr($values['highlighted_color'], 0, 1) !== "#" || !in_array(strlen($values['highlighted_color']), [4, 7])) {
       $form_state->setErrorByName('highlighted_color', $this->t('This value is not a valid hexadecimal.'));
     }
-
 
   }
 
@@ -104,8 +102,7 @@ class BubbleSortForm extends ConfigFormBase {
     $config->set('bubble_sort.highlighted_color', $form_state->getValue('highlighted_color'));
     $config->save();
 
-    Cache::invalidateTags(['bubble-sort-view']);        
-
+    Cache::invalidateTags(['bubble-sort-view']);
 
     return parent::submitForm($form, $form_state);
   }

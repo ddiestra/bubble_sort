@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains Bubble Sort Module.
+ */
+
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -14,7 +19,6 @@ function bubble_sort_help($route_name, RouteMatchInterface $route_match) {
       return $output;
   }
 }
-
 
 /**
  * Implements hook_theme().
